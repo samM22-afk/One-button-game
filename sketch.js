@@ -120,6 +120,7 @@ function draw() {
 	//ghostiii.attractTo(ball,20);
 	fill('white');
 	text('Push out all the sprites', 900,200,);
+	text('press w', 900,300,);
 	//if(keyboard.pressed('w') ) {
      // ball.velocity.y = -5;
 	//}
