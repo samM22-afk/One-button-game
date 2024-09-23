@@ -20,10 +20,10 @@ function setup() {
 	//end of score
 	new Canvas(3840, 2160);
     //player 1 / eating sprite
-	ball = new Sprite(170,650);
+	ball = new Sprite(170,626);
 	ball.diameter = 80;
 	ball.img = '😀';
-	ball.collider = 'dynamic'
+	ball.collider = 'none'
 	world.gravity.y = 10;
 	
 	//conveyer belt
@@ -37,11 +37,15 @@ function setup() {
 	egg = new Sprite(1200,650);
 	egg.img = '🥚';
 	egg.collider = 'dynamic'
+	//egg.direction = 187;
+	//egg.speed = 12;
 	
 	//reward sprite 2nd
 	eggi = new Sprite(1300,650);
 	eggi.img = '🥚';
 	eggi.collider = 'dynamic'
+	//eggi.direction = 187;
+	//eggi.speed = 12;
 	
 	//GHOST DO NOT EAT
 	img = loadImage('ghost scary.png');
@@ -49,6 +53,8 @@ function setup() {
     ghost = new Sprite(1400, 650);
 	ghost.img = 'ghost scary.png'
 	ghost.collider = 'dynamic'
+	//ghost.direction = 187;
+	//ghost.speed = 12;
 
 	//ghost 2
 	img = loadImage('ghost scary.png');
@@ -56,11 +62,15 @@ function setup() {
     ghosti = new Sprite(1475, 650);
 	ghosti.img = 'ghost scary.png'
 	ghosti.collider = 'dynamic'
+	//ghosti.direction = 187;
+	//ghosti.speed = 12;
 
 	//reward sprite 3rd
 	eggii = new Sprite(1100,650);
 	eggii.img = '🥚';
 	eggii.collider = 'dynamic'
+	//eggii.direction = 187;
+	//eggii.speed = 12;
 
 	//ghost 3
 	img = loadImage('ghost scary.png');
@@ -68,11 +78,15 @@ function setup() {
     ghostii = new Sprite(1000, 650);
 	ghostii.img = 'ghost scary.png'
 	ghostii.collider = 'dynamic'
+	//ghostii.direction = 187;
+	//ghostii.speed = 12;
 
 	//reward sprite 4th
 	eggiii = new Sprite(900,650);
 	eggiii.img = '🥚';
 	eggiii.collider = 'dynamic'
+	//eggiii.direction = 187;
+	//eggiii.speed = 12;
 
 	//ghost 4
 	img = loadImage('ghost scary.png');
@@ -80,16 +94,22 @@ function setup() {
     ghostiii = new Sprite(800, 650);
 	ghostiii.img = 'ghost scary.png'
 	ghostiii.collider = 'dynamic'
+	//ghostiii.direction = 187;
+	//ghostiii.speed = 12;
 	
 	//reward sprite 5th
 	eggiv = new Sprite(700,650);
 	eggiv.img = '🥚';
 	eggiv.collider = 'dynamic'
+	//eggiv.direction = 187;
+	//eggiv.speed = 12;
 	
 	//reward sprite 6th
 	eggv = new Sprite(600,650);
 	eggv.img = '🥚';
 	eggv.collider = 'dynamic'
+	//eggv.direction = 187;
+	//eggv.speed = 12;
 	
 	//wall
 	wall = new Sprite(20, 650);
@@ -119,8 +139,8 @@ function draw() {
 	//ghostii.attractTo(ball,20);
 	//ghostiii.attractTo(ball,20);
 	fill('white');
-	text('Push out all the sprites', 900,200,);
-	text('press w', 900,300,);
+	text('Welcome to ghost absorber', 900,200,);
+	text('press w to eat the eggs!', 900,300,);
 	//if(keyboard.pressed('w') ) {
      // ball.velocity.y = -5;
 	//}
@@ -132,5 +152,16 @@ function draw() {
 	}
 	if (kb.presses('w')) {
 		background(0, 0, 0)
+	}
+	if (ball.overlaps(egg)) egg.remove();
+	if (ball.overlaps(eggi)) eggi.remove();
+	if (ball.overlaps(eggii)) eggii.remove();
+	if (ball.overlaps(eggii)) eggii.remove();
+	if (ball.overlaps(eggiii)) eggiii.remove();
+	if (ball.overlaps(eggiv)) eggiv.remove();
+	if (ball.overlaps(eggv)) eggv.remove();
+    if (ball.overlaps(eggi)) {
+		fill('white');
+		text('YOU WIN!', 1000, 300);
 	}
 }
